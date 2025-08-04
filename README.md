@@ -23,7 +23,7 @@ A custom-built, mobile-first responsive Pokédex application developed with **Re
 
 ## Live Demo
 
-- [View Live App]()
+- [View Live App](https://react-pokedex-ntk.netlify.app/)
 
 ## Data Source
 
