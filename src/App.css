@@ -1,0 +1,292 @@
+/* root */
+#root {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media(max-width:768px){
+  #root{
+    flex-direction: column;
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-button {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: none;
+  }
+}
+
+/* SideNav */
+.side-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  height: 100vh;
+  width: 100vw;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.side-nav.open {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .side-nav {
+    transform: none;
+    width: 250px;
+    border-right: 1px solid #ddd;
+    z-index: 10;
+  }
+
+  .side-nav.open {
+    transform: none;
+  }
+}
+
+.side-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.close-button {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .close-button {
+    display: none;
+  }
+}
+
+.search-input {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.pokemon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pokemon-button {
+  padding: 0.5rem 1rem;
+  background-color: #f8f8f8;
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pokemon-button:hover {
+  background-color: #e0e0e0;
+}
+
+.pokemon-button.active {
+  background-color: #cce5ff;
+  font-weight: 600;
+  color: #003366;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* PokeCard */
+.pokecard {
+  padding: 1rem;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media(min-width:768px){
+  .pokecard{
+    margin-left: 250px;
+  }
+}
+
+.pokecard h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.pokecard h4 {
+  font-size: 1rem;
+  color: #666;
+}
+
+.pokecard-type-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pokecard-large-img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .pokecard-large-img {
+    max-width: 300px;
+    display: block;
+  }
+}
+
+.pokecard-sprites {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pokecard-sprites img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+.pokecard-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pokecard-stats h4 {
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.pokecard-stats p {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.pokecard-moves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.pokecard-moves button {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-transform: capitalize;
+}
+
+.pokecard-moves button:hover {
+  background: #d1d1d1;
+}
+
+/* TypeCard*/
+.typecard {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  cursor: default;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 90%;
+  width: 600px;
+  height: 300px;
+  z-index: 1001;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-section{
+  margin-bottom: 1.5rem;
+}
+
+.modal-content h6 {
+  font-size: 0.75rem;
+  color: #777;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  margin: 0.25rem 0 0;
+  color: #444;
+  line-height: 1.5;
+}
+
